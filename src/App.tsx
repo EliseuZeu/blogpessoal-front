@@ -5,9 +5,11 @@ import Home from './pages/home/Home';
 import './App.css';
 import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/cadastro';
+import { AuthProvider } from './contexs/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Navbar />
       <div className="min-h-[80vh]">
@@ -20,6 +22,7 @@ function App() {
       </div>
       <Footer />
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 
