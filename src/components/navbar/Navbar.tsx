@@ -26,7 +26,7 @@ function Navbar() {
 
                 {/* Links */}
                 <nav className='flex gap-6 text-gray-300'>
-                    <a href="#" className="hover:text-red-600 transition-all duration-300 hover:scale-105">Postagens</a>
+                    <Link to='/postagens' className="hover:text-red-600 transition-all duration-300 hover:scale-105">Postagens</Link>
                     <Link to='/temas' className="hover:text-red-600 transition-all duration-300 hover:scale-105">Temas</Link>
                     <Link to='/cadastrartema' className="hover:text-red-600 transition-all duration-300 hover:scale-105">Cadastrar Tema</Link>
                     <a href="#" className="hover:text-red-600 transition-all duration-300 hover:scale-105">Perfil</a>

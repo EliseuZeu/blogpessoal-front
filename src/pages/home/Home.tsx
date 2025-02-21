@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import ListaPostagens from "../../components/postagens/listapostagens/ListaPostagens";
+import ModalPostagem from "../../components/modalpostagem/ModalPostagem";
 
 function Home() {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -28,6 +30,7 @@ function Home() {
     }, []);
 
     return (
+        <>
         <div className="relative flex justify-center bg-black">
             {/* Fundo Estrelado Animado */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-40 animate-twinkle z-[-1]"></div>
@@ -45,12 +48,12 @@ function Home() {
 
                     {/* Botão aprimorado */}
                     <div className="flex justify-around gap-4">
-                        <button 
+                        <div 
                             id="darth-button"
-                            className="rounded-lg text-gray-300 border-2 border-white py-2 px-6 transition-all duration-300 hover:bg-red-700 hover:text-white hover:shadow-red-500/50 hover:scale-105"
-                        >
-                            Nova Postagem
-                        </button>
+                            className="rounded-lg text-gray-300 transition-all duration-300 hover:bg-red-700 hover:text-white hover:shadow-red-500/50 hover:scale-105"
+                            >
+                            <ModalPostagem />
+                        </div>
                     </div>
                 </div>
 
@@ -60,11 +63,13 @@ function Home() {
                         src="https://ik.imagekit.io/sdkyquy76/Blogpessoal/darth-vader-svgrepo-com%20(2).svg?updatedAt=1739650030531"
                         alt="Imagem Página Home"
                         className="w-full sm:w-2/3 md:w-1/2 drop-shadow-2xl hover:scale-105 transition-transform duration-300 animate-floating"
-                    />
+                        />
                 </div>
 
             </div>
         </div>
+         <ListaPostagens />
+    </>
     );
 }
 
