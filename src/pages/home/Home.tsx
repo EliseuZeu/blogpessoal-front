@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import ListaPostagens from "../../components/postagens/listapostagens/ListaPostagens";
-import ModalPostagem from "../../components/modalpostagem/ModalPostagem";
+import ModalPostagem from "../../components/postagens/modalpostagem/ModalPostagem";
 
 function Home() {
     const audioRef = useRef<HTMLAudioElement | null>(null);

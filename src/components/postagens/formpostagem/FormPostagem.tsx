@@ -1,5 +1,6 @@
-import { useState, useContext, useEffect, ChangeEvent } from "react";
+﻿﻿import { useState, useContext, useEffect, ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 import Postagem from "../../../models/Postagem";
 import Tema from "../../../models/Tema";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
@@ -13,7 +14,7 @@ function FormPostagem() {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [temas, setTemas] = useState<Tema[]>([])
 
-    const [tema, setTema] = useState<Tema>({ id: 0, descricao: '', })
+    const [tema, setTema] = useState<Tema>({ id: 0, descricao: '', map: () => null })
     const [postagem, setPostagem] = useState<Postagem>({} as Postagem)
 
     const { id } = useParams<{ id: string }>()
@@ -35,7 +36,7 @@ function FormPostagem() {
 
     async function buscarTemaPorId(id: string) {
         try {
-            await buscar(`/temas/${id}`, setTema, {
+            await buscar(`/tema/${id}`, setTema, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {
@@ -47,7 +48,7 @@ function FormPostagem() {
 
     async function buscarTemas() {
         try {
-            await buscar('/temas', setTemas, {
+            await buscar('/tema', setTemas, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {
@@ -178,9 +179,7 @@ function FormPostagem() {
                         <option value="" selected disabled>Selecione um Tema</option>
 
                         {temas.map((tema) => (
-                            <>
-                                <option value={tema.id} >{tema.descricao}</option>
-                            </>
+                            <option value={tema.id} >{tema.descricao}</option>
                         ))}
 
                     </select>
